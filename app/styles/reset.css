@@ -29,6 +29,14 @@ h2 {
   margin-bottom: 1rem;
 }
 
+h1,h2{
+  text-align: center;
+}
+
+h1,h2,h3,h4,h5,h6{
+  color:#26497C;
+}
+
 h4 {
   font-size: 18px;
   margin-top: 0.5rem;
@@ -51,7 +59,7 @@ a {
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
   cursor: pointer;
 }
 
@@ -71,9 +79,6 @@ body {
   min-height: 100vh;
 }
 
-body > main {
-  margin: 0 1rem 1rem 1rem;
-}
 
 section {
   padding: 1rem 0;
@@ -130,3 +135,4 @@ code {
   font-family: monospace;
   padding: 0.25rem;
 }
+
