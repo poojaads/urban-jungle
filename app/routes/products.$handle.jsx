@@ -173,14 +173,31 @@ function ProductMain({selectedVariant, product, variants}) {
           )}
         </Await>
       </Suspense>
-      <br />
-      <br />
       <p>
         <strong>Description</strong>
       </p>
       <br />
+      
       <div dangerouslySetInnerHTML={{__html: descriptionHtml}} />
       <br />
+      <AddToCartButton
+        disabled={!selectedVariant || !selectedVariant.availableForSale}
+        onClick={() => {
+          window.location.href = window.location.href + '#cart-aside';
+        }}
+        lines={
+          selectedVariant
+            ? [
+                {
+                  merchandiseId: selectedVariant.id,
+                  quantity: 1,
+                },
+              ]
+            : []
+        }
+      >
+        {selectedVariant?.availableForSale ? 'Add to cart' : 'Sold out'}
+      </AddToCartButton>
     </div>
   );
 }
@@ -229,7 +246,7 @@ function ProductForm({product, selectedVariant, variants}) {
         {({option}) => <ProductOptions key={option.name} option={option} />}
       </VariantSelector>
       <br />
-      <AddToCartButton
+      {/* <AddToCartButton
         disabled={!selectedVariant || !selectedVariant.availableForSale}
         onClick={() => {
           window.location.href = window.location.href + '#cart-aside';
@@ -246,7 +263,7 @@ function ProductForm({product, selectedVariant, variants}) {
         }
       >
         {selectedVariant?.availableForSale ? 'Add to cart' : 'Sold out'}
-      </AddToCartButton>
+      </AddToCartButton> */}
     </div>
   );
 }
@@ -269,7 +286,7 @@ function ProductOptions({option}) {
               replace
               to={to}
               style={{
-                border: isActive ? '1px solid black' : '1px solid transparent',
+                border: isActive ? '2px solid #083386' : '2px solid #ffca56',
                 opacity: isAvailable ? 1 : 0.3,
               }}
             >
@@ -303,6 +320,7 @@ function AddToCartButton({analytics, children, disabled, lines, onClick}) {
             value={JSON.stringify(analytics)}
           />
           <button
+            className='addtocart-button'
             type="submit"
             onClick={onClick}
             disabled={disabled ?? fetcher.state !== 'idle'}

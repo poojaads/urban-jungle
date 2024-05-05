@@ -423,6 +423,9 @@ aside li {
 */
 .product {
   display: grid;
+  gap: 0 !important;
+    background-color: #fff8eb;
+
   @media (min-width: 45em) {
     grid-template-columns: 1fr 1fr;
     grid-gap: 4rem;
@@ -431,7 +434,9 @@ aside li {
 
 .product h1 {
   margin-top: 0;
+  text-align: left;
 }
+
 
 .product-image img {
   height: auto;
@@ -442,6 +447,7 @@ aside li {
   align-self: start;
   position: sticky;
   top: 6rem;
+  padding: 50px 50px;
 }
 
 .product-price-on-sale {
@@ -461,6 +467,12 @@ aside li {
 
 .product-options-item {
   padding: 0.25rem 0.5rem;
+  padding: 5px 15px;
+  border: none;
+  background-color: #ffca56;
+  font-size: 15px;
+  border-radius: 50px;
+  font-weight: 600;
 }
 
 /*
@@ -518,4 +530,14 @@ aside li {
   background-color: #083386;
   color: #fff;
   transition: all 0.4s;
+}
+
+
+.product-main .addtocart-button{
+  background-color: #083386;
+  border-radius: 10px;
+  width: 50%;
+  font-size: 20px;
+  color: #fff;
+  padding: 10px 15px;
 }
