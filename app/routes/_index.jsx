@@ -1,7 +1,8 @@
 import {defer} from '@shopify/remix-oxygen';
 import {Await, useLoaderData, Link} from '@remix-run/react';
-import {Suspense} from 'react';
+import {Suspense, useState} from 'react';
 import {Image, Money} from '@shopify/hydrogen';
+import HoverImage from '../../public/assets/images/campstool-1.png';
 
 /**
  * @type {MetaFunction}
@@ -62,6 +63,16 @@ function FeaturedCollection({collection}) {
  * }}
  */
 function RecommendedProducts({products}) {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+
+  const handleMouseEnter = (index) => {
+    setHoveredIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredIndex(null);
+  };
+
   return (
     <div className="recommended-products">
       <h2>Recommended Products</h2>
@@ -69,26 +80,32 @@ function RecommendedProducts({products}) {
         <Await resolve={products}>
           {({products}) => (
             <div className="recommended-products-grid">
-              {products.nodes.map((product) => (
-                <div className="product-container" key={product.id}>
+              {products.nodes.map((product, index) => (
+                <div
+                  className="product-container"
+                  key={product.id}
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={handleMouseLeave}
+                >
                   <button className="addtocart-button">Add +</button>
                   <Link
                     className="recommended-product"
                     to={`/products/${product.handle}`}
                   >
-                    <Image
-                      data={product.images.nodes[0]}
-                      aspectRatio="1/1"
-                      sizes="(min-width: 45em) 20vw, 50vw"
-                    />
+                    {hoveredIndex === index ? (
+                      <img src={HoverImage} width="294" lt="hoverimage" />
+                    ) : (
+                      <Image
+                        data={product.images.nodes[0]}
+                        aspectRatio="1/1"
+                        sizes="(min-width: 45em) 20vw, 50vw"
+                      />
+                    )}
                     <div className="recommended-product-description">
                       <h4>{product.title}</h4>
                       <small>
                         <Money data={product.priceRange.minVariantPrice} />
                       </small>
-                    </div>
-                    <div>
-                      <p>{console.log(product)}</p>
                     </div>
                   </Link>
                 </div>
