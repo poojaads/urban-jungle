@@ -106,14 +106,71 @@ export default function Product() {
   const {product, variants} = useLoaderData();
   const {selectedVariant} = product;
   return (
-    <div className="product">
-      <ProductImage image={selectedVariant?.image} />
-      <ProductMain
-        selectedVariant={selectedVariant}
-        product={product}
-        variants={variants}
-      />
-    </div>
+    <>
+      <div className="product">
+        <ProductImage image={selectedVariant?.image} />
+        <ProductMain
+          selectedVariant={selectedVariant}
+          product={product}
+          variants={variants}
+        />
+      </div>
+      <div className="nutritional-container">
+        <div>
+          <h2>Aromas, Notes & Styles</h2>
+          <div className="nurtitional-chips">
+            <span>Copper</span>
+            <span>Bread</span>
+            <span>Malt</span>
+            <span>Nutty</span>
+          </div>
+        </div>
+        <div>
+          <h2>About this Coffee</h2>
+          <p>INGREDIENTS: Water, Malted Barley, Wheat, Hops, Yeast.</p>
+        </div>
+        <div>
+          <h2>About this Coffee</h2>
+          <div className="nurtitional-box">
+            <div>
+              <h5>Calories:</h5>
+              <h5>60 kcal</h5>
+            </div>
+            <div>
+              <h5>Carbohydrates:</h5>
+              <h5>14 g</h5>
+            </div>
+            <div>
+              <h5>Protein:</h5>
+              <h5>1 g</h5>
+            </div>
+            <div>
+              <h5>Fat:</h5>
+              <h5>0 g</h5>
+            </div>
+          </div>
+          <br />
+          <p>Average Analysis per 12oz serving</p>
+        </div>
+      </div>
+      <div className="recipe-container">
+        <div>
+          <p>recipe image</p>
+        </div>
+        <div className="recipe-description">
+          <h2>Recipe</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat. Duis aute irure dolor in
+            reprehenderit in voluptate velit esse cillum dolore
+          </p>
+          <br />
+          <button>Get the recipe</button>
+        </div>
+      </div>
+    </>
   );
 }
 
@@ -148,7 +205,9 @@ function ProductMain({selectedVariant, product, variants}) {
   const {title, descriptionHtml} = product;
   return (
     <div className="product-main">
-      <h1>{title}</h1>
+      <h1>
+        {title} + <span>Mug</span>
+      </h1>
       <ProductPrice selectedVariant={selectedVariant} />
       <br />
       <Suspense
@@ -177,7 +236,7 @@ function ProductMain({selectedVariant, product, variants}) {
         <strong>Description</strong>
       </p>
       <br />
-      
+
       <div dangerouslySetInnerHTML={{__html: descriptionHtml}} />
       <br />
       <AddToCartButton
@@ -320,7 +379,7 @@ function AddToCartButton({analytics, children, disabled, lines, onClick}) {
             value={JSON.stringify(analytics)}
           />
           <button
-            className='addtocart-button'
+            className="addtocart-button"
             type="submit"
             onClick={onClick}
             disabled={disabled ?? fetcher.state !== 'idle'}
