@@ -357,6 +357,7 @@ aside li {
   position: absolute;
   right: 0;
   top: 0;
+  border-radius: 0px 0px 0px 10px !important;
 }
 
 .recommended-product img {
@@ -473,7 +474,7 @@ aside li {
   padding: 0.25rem 0.5rem;
   padding: 5px 15px;
   border: none;
-  background-color: #ffca56;
+  background-color: #fe6426;
   font-size: 15px;
   border-radius: 50px;
   font-weight: 600;
@@ -531,19 +532,25 @@ aside li {
 }
 
 .addtocart-button:hover{
-  background-color: #083386;
+  background-color: #243D8D;
   color: #fff;
   transition: all 0.4s;
 }
 
 
 .product-main .addtocart-button{
-  background-color: #083386;
+  background-color: #243D8D;
   border-radius: 10px;
   width: 50%;
   font-size: 20px;
   color: #fff;
   padding: 10px 15px;
+}
+
+.product-main .addtocart-button:hover{
+  background-color: #fff;
+  color: #243D8D;
+  border: 2px solid #243D8D !important;
 }
 
 .nutritional-container{
@@ -569,7 +576,7 @@ aside li {
 }
 
 .nutritional-container .nurtitional-chips span{
-  border:1px solid #083386;
+  border:1px solid #243D8D;
   padding: 5px 10px;
   border-radius: 20px;
   font-weight: 500;
@@ -579,7 +586,7 @@ aside li {
 .nutritional-container .nurtitional-box div{
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #083386;
+  border-bottom: 1px solid #243D8D;
 }
 
 .nutritional-container .nurtitional-box h5{
@@ -597,7 +604,7 @@ aside li {
 }
 
 .recipe-container div:first-child{
-  background-color: #ffca56;
+  background-color: #fe6426;
   width: 100%;
   height: 400px;
 }
@@ -607,18 +614,19 @@ aside li {
 }
 
 .recipe-container .recipe-description button{
-  background-color: #ffca56;
+  background-color: #fe6426;
   border: 0px;
   padding: 8px 20px;
   font-size: 16px;
   font-weight: 600;
   transition: 0.2s ease-in;
-  border: 2px solid #ffca56;
   text-transform: uppercase;
+  color: #fff;
 }
 
 .recipe-container .recipe-description button:hover{
   background-color: #fff;
-  color: #ffca56;
+  color: #fe6426;
   cursor: pointer;
+  border: 2px solid #fe6426 !important;
 }
