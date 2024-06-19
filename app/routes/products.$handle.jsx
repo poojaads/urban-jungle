@@ -13,6 +13,7 @@ import Icon1 from '../../public/assets/images/Almond.svg';
 import Icon2 from '../../public/assets/images/Cacao.svg';
 import Icon3 from '../../public/assets/images/Creamy.svg';
 import Icon4 from '../../public/assets/images/Molasses.svg';
+import ProductCollage from '../../public/assets/images/productcollage.png';
 
 /**
  * @type {MetaFunction<typeof loader>}
@@ -112,7 +113,12 @@ export default function Product() {
   return (
     <>
       <div className="product">
-        <ProductImage image={selectedVariant?.image} />
+        {/* <ProductImage image={selectedVariant?.image} /> */}
+        <img
+          src={ProductCollage}
+          style={{width: '100%'}}
+          alt="productcollage"
+        />
         <ProductMain
           selectedVariant={selectedVariant}
           product={product}
@@ -294,8 +300,7 @@ function ProductPrice({selectedVariant}) {
     <div className="product-price">
       {selectedVariant?.compareAtPrice ? (
         <>
-          <p>Sale</p>
-          <br />
+          <h4>Sale</h4>
           <div className="product-price-on-sale">
             {selectedVariant ? <Money data={selectedVariant.price} /> : null}
             <s>
