@@ -2,7 +2,7 @@ import {defer} from '@shopify/remix-oxygen';
 import {Await, useLoaderData, Link} from '@remix-run/react';
 import {Suspense, useState} from 'react';
 import {Image, Money} from '@shopify/hydrogen';
-import HoverImage from '../../public/assets/images/campstool-1.png';
+import HoverImage from '../../public/assets/images/Mockup-1.jpg';
 
 /**
  * @type {MetaFunction}
