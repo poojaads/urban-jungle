@@ -232,11 +232,7 @@ function ProductMain({selectedVariant, product, variants}) {
           )}
         </Await>
       </Suspense>
-      <p>
-        <strong>Description</strong>
-      </p>
-      <br />
-
+      <h4>Description</h4>
       <div dangerouslySetInnerHTML={{__html: descriptionHtml}} />
       <br />
       <AddToCartButton
@@ -257,6 +253,23 @@ function ProductMain({selectedVariant, product, variants}) {
       >
         {selectedVariant?.availableForSale ? 'Add to cart' : 'Sold out'}
       </AddToCartButton>
+      <br />
+      <br />
+      <h4>Subscription</h4>
+      <div className="subscription-container">
+        <div className="subscription-box">
+          <h6>1 Month</h6>
+          <h6>$6</h6>
+        </div>
+        <div className="subscription-box">
+          <h6>2 Months</h6>
+          <h6>$8</h6>
+        </div>
+        <div className="subscription-box">
+          <h6>3 Months</h6>
+          <h6>$10</h6>
+        </div>
+      </div>
     </div>
   );
 }
@@ -281,7 +294,16 @@ function ProductPrice({selectedVariant}) {
           </div>
         </>
       ) : (
-        selectedVariant?.price && <Money data={selectedVariant?.price} />
+        selectedVariant?.price && (
+          <div className="price-container">
+            <div className="normal-price">
+              <Money data={selectedVariant?.price} />
+            </div>
+            {/* <div className="subscription-price">
+              <Money data={selectedVariant?.price} />
+            </div> */}
+          </div>
+        )
       )}
     </div>
   );

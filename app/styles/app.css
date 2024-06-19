@@ -455,6 +455,50 @@ aside li {
   padding: 0px 10px;
 }
 
+.product-main .price-container{
+  display: flex;
+  gap: 10px;
+  font-weight: 600;
+}
+
+.product-main .price-container .subscription-price{
+  color:#b9b9b9;
+}
+
+.product-main h4{
+  color:#243D8D;
+}
+
+.product-main .subscription-container{
+  display: flex;
+  gap: 20px;
+}
+
+.product-main .subscription-container .subscription-box{
+  padding: 15px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 2px solid #ffc956c0;
+  background-color: #ffc956c0;
+  border-radius: 20px;
+  text-align: center;
+  width: 33%;
+}
+
+.product-main .subscription-container .subscription-box:hover{
+  cursor: pointer;
+  transition: 0.2s ease-in;
+  box-shadow: 0 0 4px 4px rgba(0, 0, 0, 0.1);
+}
+
+.product-main .subscription-container .subscription-box h6{
+  margin: 0;
+  font-size: 16px;
+  color: #fe6426;
+}
+
+
 .product-price-on-sale {
   display: flex;
   grid-gap: 0.5rem;
