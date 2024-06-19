@@ -9,6 +9,10 @@ import {
   CartForm,
 } from '@shopify/hydrogen';
 import {getVariantUrl} from '~/lib/variants';
+import Icon1 from '../../public/assets/images/Almond.svg';
+import Icon2 from '../../public/assets/images/Cacao.svg';
+import Icon3 from '../../public/assets/images/Creamy.svg';
+import Icon4 from '../../public/assets/images/Molasses.svg';
 
 /**
  * @type {MetaFunction<typeof loader>}
@@ -128,6 +132,12 @@ export default function Product() {
         <div>
           <h2>About this Coffee</h2>
           <p>INGREDIENTS: Water, Malted Barley, Wheat, Hops, Yeast.</p>
+          <div className="about-icons">
+            <img src={Icon1} width="48" alt="icon1" />
+            <img src={Icon2} width="48" alt="icon2" />
+            <img src={Icon3} width="48" alt="icon3" />
+            <img src={Icon4} width="48" alt="icon4" />
+          </div>
         </div>
         <div>
           <h2>About this Coffee</h2>
